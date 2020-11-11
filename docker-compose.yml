@@ -1,18 +1,18 @@
 version: "3.7"
 services:
   database:
-    image: mysql:latest
+    image: mysql:5.7
     environment: 
-      - MYSQL_ROOT_PASSWORD: Pl1234
-      - MYSQL_DATABASE: bookstore_db
-      - MYSQL_USER: clarusway
-      - MYSQL_PASSWORD: Clarusway_1
+      MYSQL_ROOT_PASSWORD: Pl1234
+      MYSQL_DATABASE: bookstore_db
+      MYSQL_USER: clarusway
+      MYSQL_PASSWORD: Clarusway_1
     networks:
       - bookstore-web
   my-app:
     build: .
     restart: always
-    depends-on:
+    depends_on:
       - database
     networks:
       - bookstore-web
